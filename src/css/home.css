@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@500&display=swap');
+
+.main {
+    height: 100vh !important;
+    width: 100%;
+    margin-bottom: 300px !important;
+}
+
+.vertical-align{
+    margin-top: 30px;
+}
+
+.errfont{
+    color: red
+}
+
+.whos-who{
+    font-family: 'DynaPuff', cursive;
+}
+
