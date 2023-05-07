@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Howl, Howler } from 'howler';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay, faCirclePause } from '@fortawesome/free-solid-svg-icons';
@@ -7,8 +7,10 @@ import { Row } from 'react-bootstrap';
 import '../css/game.css'
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
-const Game = ({ noOfSongs, noOfArtists, songs }) => {
-
+const Game = () => {
+    
+    console.log(useLocation().state)
+    const { noOfSongs, noOfArtists, songs } = useLocation().state;
     const [filteredSongs, setFilteredSongs] = useState([]);
 
     //Randomizes songs from API results and picks first 4 results since 4 is max # of artists
@@ -28,7 +30,14 @@ const Game = ({ noOfSongs, noOfArtists, songs }) => {
     return (
         <Row className='d-flex justify-content-around'>
             <h3 className=' whos-who text-center mb-5'>Guess Who...</h3>
-            <div className='card p-2'>
+            
+                <Link className='back-btn' to={{
+                    pathname: "/"
+                }}>
+                    <button className='btn btn-success '>Back</button>
+                </Link>
+            
+            <div className='card p-2 border-light'>
                 {filteredSongs.slice(0, noOfSongs).map((song, index) => (
                     <Row className='guess-who-row'>
                         {/* Audio Player Div */}

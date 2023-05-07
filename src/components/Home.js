@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Route, Link, ReactDOM } from 'react-router-dom'
+import { Route, ReactDOM, Redirect } from 'react-router-dom'
 import fetchFromSpotify, { request } from '../services/api'
 import Game from './Game';
 import { Container } from 'react-bootstrap';
@@ -113,7 +113,14 @@ const Home = () => {
     <>
       {submit ? (
         <Container>
-          <Game songs={songs} selectedGenre={selectedGenre} noOfSongs={noOfSongs} noOfArtists={noOfArtists} />
+          <Redirect to={{ 
+            pathname: '/play',
+            state: { 
+              songs: songs, 
+              selectedGenre: selectedGenre,
+              noOfSongs: noOfSongs,
+              noOfArtists: noOfArtists}}} />
+          {/* <Game songs={songs} selectedGenre={selectedGenre} noOfSongs={noOfSongs} noOfArtists={noOfArtists} /> */}
         </Container>
       ) : (
         <Container>
