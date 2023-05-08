@@ -8,8 +8,6 @@ import '../css/game.css'
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 const Game = () => {
-    
-    console.log(useLocation().state)
     const { noOfSongs, noOfArtists, songs } = useLocation().state;
     const [filteredSongs, setFilteredSongs] = useState([]);
 
@@ -23,7 +21,7 @@ const Game = () => {
     const [radioValue, setRadioValue] = useState({});
 
     useEffect(() => {
-        console.log(radioValue);
+        //console.log(radioValue);
     }, [radioValue]);
 
 
@@ -93,9 +91,10 @@ const Game = () => {
                                             onChange={(e) => {
                                                 const newValue = e.currentTarget.value;
                                                 setRadioValue(prevState => ({ ...prevState, [`${index}`]: newValue }));
-                                                console.log("artist artist " + artist.artist);
-                                                console.log("radio value at index " + radioValue[index]);
-                                                console.log(Boolean(radioValue[index] == artist.artist))
+                                                // console.log("artist artist " + artist.artist);
+                                                // console.log("this is index ", index, idx)
+                                                // console.log("radio value at index " + radioValue[index]);
+                                                // console.log(Boolean(radioValue[index] == artist.artist))
                                             }}
                                         >
                                             {artist.artist}

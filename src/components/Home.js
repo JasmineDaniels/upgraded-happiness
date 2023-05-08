@@ -112,7 +112,6 @@ const Home = () => {
   return (
     <>
       {submit ? (
-        <Container>
           <Redirect to={{ 
             pathname: '/play',
             state: { 
@@ -120,8 +119,6 @@ const Home = () => {
               selectedGenre: selectedGenre,
               noOfSongs: noOfSongs,
               noOfArtists: noOfArtists}}} />
-          {/* <Game songs={songs} selectedGenre={selectedGenre} noOfSongs={noOfSongs} noOfArtists={noOfArtists} /> */}
-        </Container>
       ) : (
         <Container>
         
